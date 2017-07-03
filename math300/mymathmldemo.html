@@ -1,0 +1,197 @@
+<html>
+
+
+<!-- here comes some CSS! --> 
+<style> 
+
+<!-- only the eqnalign will have the padding set to 0px --> 
+#eqnalign mtd{
+	padding:0px; 
+	
+}	
+	
+</style> 
+	
+	
+<body>
+
+
+<h1> Quadratic Polynomials</h1>
+
+<br/>
+
+<p>
+A monic quadratic polynomial has the form 
+<math>
+
+<!-- you can only put one character between <mi> </mi> -->
+
+<mi>p</mi> <mfenced> <mi>x</mi> </mfenced> 
+<mo> = </mo>
+<mscup> <mi>x</mi>  <mn>2</mn> </msoup> 
+
+<!-- mo = math object --> 
+
+<mo> + </mo> 
+
+<mi>b</mi> <mi>x</mi> 
+
+<mo> + </mo> 
+
+<mi>c</mi> 
+</math>
+
+The roots of this polynomial have the form 
+
+<math mode="display">  
+<mi> &lambda; </mi> 	
+
+<mo> = </mo> 
+
+<!-- <mrow> groups the stuff together so you can get more stuff in a fraction --> 
+
+<mfrac> 
+	<mrow> <mo>-</mo> <mi>b</mi> </mrow>
+	<mn>2</mn> 
+	
+</mfrac> 
+
+<mo> &pm; </mo> 
+
+<mfrac> 
+	
+	<msqrt> 
+	
+	<msup> <mi>b</mi> <mn>2</mn> </msup> 
+	
+	<mo> - </mo> 
+	
+	<mn>4</mn> <!-- mn = math number --> <mi>c</mi> 	
+	
+	</msqrt> 
+	
+	<mn>2</mn> 
+	
+</mfrac> 		
+<mo>.</mo> 	
+</math> 
+
+
+If we suppose that <math><mi>b</mi> </math> 
+and <math><mi>c</mi></math> are in the 
+<math><mi mathvariant="bold">R</mi></math>, 
+othen either both roots are real or they are complex conugates of one another, and the sum of the roots is 
+
+<math mode="display"> 
+	<!-- something under and somehting over it. Takes three arguments. --> 
+	
+	<munderover> 
+		<mo>&sum;</mo> 
+		<mrow> <mi>i</mi><mo>=</mo><mn>1</mn> </mrow> 
+		<mn>2</mn>
+	</munderover> 
+	<msup> <mi> &lambda; </mi> <mi>i</mi> </msup>  
+	
+	<mo>=</mo> 	
+		
+	<mo> - </mo> <mi>b</mi> <mo>.</mo> 	
+
+</math> 
+
+
+</p>
+
+
+<p>
+
+Now every polynomial has a so-called 
+<!-- span is the right tag according to the W3C --> 
+
+<span style="font-style:italic">companion matrix </span> 
+
+associated with it. 
+
+In this case the companion matrix of our quadratic is
+
+<!-- Notes taken on 9.9.15 -- MathML generator --> 
+
+<math mode="display">
+
+<mi>c</mi> <mfenced> <mi>p</mi> </mfenced> 
+<mo>=</mo> 
+
+<mfenced open="[" close="]">
+<mtable>
+	
+	<mtr>
+	<mtd><mn>0</mn></mtd> 
+	<mtd><mo>-</mo><mi>c</mi></mtd>
+	</mtr>
+	
+	<mtr>
+	<mtd><mn>1</mn></mtd> 
+	<mtd><mo>-</mo><mi>b</mi></mtd>
+	</mtr>
+</mtable>		
+</mfenced><mo>.</mo>  	
+</math> 
+
+The reason why this is called the companion matrix is that 
+<math mode="display"> 
+<mtext>det</mtext> 
+
+<mfenced>
+<mrow>
+	<mi>x</mi><mi>I</mi><mo>-</mo> 	
+	<mi>C</mi><mfenced><mi>p</mi></mfenced> 
+<mrow>	
+</mfenced> 	
+<!-- add the p(x) shtuff --> 
+
+<mo>.</mo> 
+</math> 	
+
+It follows that the roots of 
+<math> 
+<mi>p</mi> <mfenced><mi>x</mi></mfenced>
+</math> 
+are exactly the eigenvalues of 
+<math>
+<mi>C</mi><mfenced><mi>p</mi></mfenced>
+<mo>.</mo>
+</math> 
+</p> 
+
+<p>
+Now consider the differential equation
+<math> 
+<mi mathvariant="bold-italic">y</mi> 
+<mo>&prime;</mo> <mo>=</mo> 
+<mi mathvariant="bold-italic">y</mi>. 
+</math> 
+
+Where <math><mi mathvariant="bold-italic">y</mi>
+<mo>=</mo>
+<msup>
+	<mfenced>
+	<msub><mi>y</mi><mn>1</mn></msub> 
+	<msub><mi>y</mi><mn>2</mn></msub> 
+	</mfenced> 
+	<mi>T</mi> 
+</msup>
+</math>. 
+In that case 
+</p> 
+<math mode="display">
+<mtable id="eqnalign"> 
+<mtr>
+	<mtd><msub><mi>y</mi><mn>1</mn></msub><mo>&prime;</mo></mtd> 
+	<mtd><mo>=</mo></mtd>
+	<mtd><msub><mi>y</mi><mn>2</mn></msub>
+	</mtd> <!-- math table data --> 
+	
+	 
+
+
+</body>
+</html> 

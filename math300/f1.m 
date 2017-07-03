@@ -1,0 +1,14 @@
+function [extra_credit] = f1(x)
+%put some documentation in it. 
+
+if x<0
+	extra_credit = 0; 
+
+elseif x>=0 & x<=1
+	extra_credit = sqrt(x); 
+else 
+	extra_credit = 1; 
+end 
+
+
+end 

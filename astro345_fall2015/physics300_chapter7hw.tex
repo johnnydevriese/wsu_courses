@@ -1,0 +1,449 @@
+\documentclass[11pt, leqno]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%american mathematical society - AMS 
+
+\addtolength{\topmargin}{-.875in}
+	\addtolength{\textheight}{1.75in}
+
+\usepackage{listings}
+\lstset{
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true
+}
+
+\usepackage{enumerate}
+
+\usepackage{wrapfig}
+\usepackage{subfig}
+
+\oddsidemargin = 0in
+\textwidth=6.5in
+
+\begin{document}
+
+{\centering
+\textbf{Classical Mechanics (320)} \\  
+7.1, 7.2, 7.3, 7.4, 7.8 \\
+Johnny Minor \\
+}
+
+\noindent \textbf{7.1}
+We know that the Lagrangian of this system is 
+$$
+\mathcal{L}= T-U
+$$
+Where $T$ is the kinetic energy and $U$ is the potential energy. Since we need our expression in $x,y,z$ we can write both the kinetic energy in $x,y,z$ and potential energy only in $z$ because gravity only acts in the $z$ direction. So, the potential energy will be
+$$
+U = mgz.
+$$ 
+where $m$ is the mass of the projectile, $g$ is the force of gravity and $z$ is the coordinate that gravity acts in. 
+Now, we can write the kinetic energy term as the sum of the $x,y, \mathrm{and} \ z$ components. So it will look like 
+$$
+T = 1/2 m \left(\sqrt{\dot{x}^2 + \dot{y}^2 + \dot{z}^2}\right)^2
+$$
+We can then simplify $T$ and combine with $U$ to form the Lagrangian
+$$
+\mathcal{L}  = 1/2 m \left(\dot{x}^2 + \dot{y}^2 + \dot{z}^2\right) - mgz 
+$$
+Since we have three degrees of freedom we will have three corresponding Lagrangian's. In the $x$ coordinate it will be 
+$$
+\frac{\partial \mathcal{L}}{\partial x} - \frac{d}{dt}\left(\frac{\partial\mathcal{L}}{\partial \dot{x}}\right) = 0
+$$
+Rather than tackling all those terms I'll instead opt to work piecewise and then put the derivatives together. 
+$$
+\frac{\partial}{\partial x}\left(1/2 m \left(\dot{x}^2 + \dot{y}^2 + \dot{z}^2\right) - mgz \right) 
+$$
+If we carry out the derivative we can see that $x$ is not explicitly stated so therefore 
+$$ 
+\frac{\partial \mathcal{L}}{\partial x} = 0
+$$
+Now, we can look at the next term 
+$$
+\frac{\partial}{\partial \dot{x}}\left( 1/2 m \left(\dot{x}^2 + \dot{y}^2 + \dot{z}^2\right) - mgz \right)
+$$
+Since we only have one term with $\dot{x}$ we end up with 
+$$
+\frac{\partial \mathcal{L}}{\dot{x}} = m \dot{x}
+$$
+If we then take the time derivative of this and since the first term is zero we end up with. 
+$$
+m \ddot{x} = 0
+$$
+Which is what we should expect for the $x$ coordinate because the sum of the forces is zero! 
+
+\bigskip
+
+\noindent Now, for the $y$ coordinate the Lagrangian is 
+$$
+\frac{\partial \mathcal{L}}{\partial y} - \frac{d}{dt}\left(\frac{\partial\mathcal{L}}{\partial \dot{y}}\right) = 0
+$$
+If we carry out these derivatives we will end up with a similar situation to the $x$ coordinate. First we'll start by again breaking up the terms and doing them piecewise. 
+$$
+\frac{\partial}{\partial y}\left(1/2 m(\dot{x}^2 + \dot{y}^2 + \dot{z}^2) - mgz \right)
+$$
+So once again we end up with 
+$$
+\frac{\partial \mathcal{L}}{\partial y} = 0 
+$$
+We also find that 
+$$
+\frac{\partial}{\partial \dot{y}}\left(1/2 m(\dot{x}^2 + \dot{y}^2 + \dot{z}^2) - mgz \right)
+$$
+is equal to 
+$$
+\frac{\partial \mathcal{L}}{\partial \dot{y}} = m\dot{y}
+$$
+If we take the time derivative of this we get the equation of motion to be 
+$$
+m\ddot{y} = 0
+$$
+
+\bigskip
+
+\noindent Finally, in the $z$ coordinate the Lagrangian will be 
+$$
+\frac{\partial \mathcal{L}}{\partial z} - \frac{d}{dt}\left(\frac{\partial\mathcal{L}}{\partial \dot{z}}\right) = 0
+$$
+In this coordinate we should expect something interesting because the force of gravity will contribute. So, we first take 
+$$
+\frac{\partial}{\partial z}\left(1/2 m(\dot{x}^2 + \dot{y}^2 + \dot{z}^2) - mgz \right)
+$$
+We find then that 
+$$
+\frac{\partial \mathcal{L}}{\partial z} = -mg
+$$
+We then want to find 
+$$
+\frac{\partial}{\partial \dot{z}}\left(1/2 m(\dot{x}^2 + \dot{y}^2 + \dot{z}^2) - mgz \right)
+$$
+And we get 
+$$
+\frac{\partial \mathcal{L}}{\dot{z}} = m\dot{z}
+$$
+If we then take the time derivative of this we end up with 
+$$
+\frac{d}{dt}\left( m\dot{z}\right) = m\ddot{z}
+$$
+So we then combine our two terms moving the $mg$ term to the other side and canceling $m$. We find that 
+$$
+\ddot{z} = -g 
+$$
+This should make sense physically because gravity is only in the $z$ direction. 
+
+\bigskip
+
+% **************************** END OF PROBLEM 7.1 *******************************************
+
+
+\noindent \text{P 7.2}
+First we start again by saying that the Lagrangian will be 
+$$
+\mathcal{L} = T - U 
+$$
+In this scenario $T$ will be 
+$$
+T = \frac{1}{2} m \dot{x}^2
+$$
+So, then our if we form our Lagrangian 
+$$
+\mathcal{L} = \frac{1}{2} m \dot{x}^2 - U(x) 
+$$
+Our potential is only in the x direction because the problem states we are only in the $x$ coordinate. 
+So the Euler-Lagrange equation will be 
+$$
+\frac{\mathcal{L}}{\partial x} - \frac{d}{dt}\left( \frac{\partial \mathcal{L}}{\partial \dot{x}} \right) = 0
+$$
+Once again we will attack this piece wise. 
+$$
+\frac{\partial}{\partial x} \left( \frac{1}{2} m \dot{x}^2 - U(x)  \right)
+$$
+Which will be 
+$$
+\frac{\partial \mathcal{L}}{\partial x} = -\frac{\partial U}{\partial x}
+$$
+Moving on to 
+$$
+\frac{\partial}{\partial \dot{x}} \left( \frac{1}{2} m \dot{x}^2 - U(x)  \right)
+$$
+We get 
+$$
+\frac{\partial \mathcal{L}}{\partial \dot{x}} = m \dot{x}
+$$
+We then need to take the time derivative 
+$$ 
+\frac{d}{dt}\left( m \dot{x} \right) = m\ddot{x}
+$$
+If we then put our pieces together the Euler-Lagrange equation is 
+$$
+-\frac{\partial U}{\partial x} - m \ddot{x} = 0
+$$
+Now, we have to remember that the relationship between the potential and the force is 
+$$
+F = - \nabla U
+$$
+We can rejoice because the problem gave us that the force is equal to $-kx$. So then we have 
+$$
+-kx - m\ddot{x} = 0 
+$$
+Since it is traditional to solve for $\ddot{x}$ we rearrange and show that 
+$$
+\ddot{x} = - \frac{k}{m}x 
+$$ 
+This is our familiar equation for simple harmonic motion. 
+
+\bigskip
+
+\noindent \textbf{7.3}
+We start with the Lagrangian as 
+$$ 
+\mathcal{L} = T - U 
+$$ 
+
+Where $T$ is the kinetic energy and $U$ is the potential energy. The kinetic energy will be 
+$$ 
+T = \frac{1}{2}m(\dot{x}^2 + \dot{y}^2)
+$$
+And the potential energy was given in the problem, but can be rewritten in $x$ and $y$ instead of $r$ as 
+$$ 
+U = \frac{1}{2}k(x^2 + y^2)
+$$
+We Then combine these to form the Lagrangian. 
+$$ 
+L = \frac{1}{2}m(\dot{x}^2 + \dot{y}^2) - \frac{1}{2}k(x^2 + y^2)
+$$
+We will have two Euler-Lagrange equations to solve since we have $x$ and $y$. Starting with the $x$ coordinate. We have 
+$$
+\frac{\partial \mathcal{L}}{\partial x} - \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{x}}\right) = 0
+$$
+Again we will work piecewise. First, we have 
+
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial x} &= \frac{\partial}{\partial x}\left( \frac{1}{2}m(\dot{x}^2 + \dot{y}^2) - \frac{1}{2}k(x^2 + y^2) \right)  \\
+&= -kx 
+\end{align*}
+Now we will the other term 
+\begin{align*}
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{x}}\right) &= \frac{d}{dt}\left(m\dot{x}\right) \\
+&= -m\ddot{x}
+\end{align*}
+If we combine these two we get 
+$$ 
+-kx -m\ddot{x} = 0 
+$$
+Since it is tradition we rearrange and solve for $\ddot{x}$.
+$$
+\boxed{\ddot{x} = - \frac{k}{m} x }
+$$
+Now we move on to the $y$ component. The Euler-Lagrange equation will be 
+$$
+\frac{\partial \mathcal{L}}{\partial y} - \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{y}}\right) = 0
+$$
+If we again breakup the terms we first have 
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial y} &= \frac{\partial}{\partial y} \left( \frac{1}{2}m(\dot{x}^2 + \dot{y}^2) - \frac{1}{2}k(x^2 + y^2) \right) \\
+&= -ky
+\end{align*}
+And the other term is 
+\begin{align*}
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{y}}\right) &= \frac{d}{dt}\left(m\dot{y}\right) \\
+&= -m\ddot{y}
+\end{align*}
+If we combine the two $y$ terms we get 
+$$
+-ky - m\ddot{y} = 0
+$$
+We then rearrange for $\ddot{y}$ 
+$$ 
+\boxed{\ddot{y} = -\frac{k}{m} y }
+$$
+The solutions in $x$ and $y$ appear to be a solution to a harmonic oscillator. 
+
+\bigskip
+
+\noindent \textbf{P 7.4} \\
+
+{\centering
+%{\centering
+\fbox{ 
+\begin{minipage}{4in} 
+\hfill\vspace{2in} 
+\end{minipage} } \\
+}
+\bigskip 
+%} 
+Again we begin with the Lagrangian 
+$$ 
+\mathcal{L} = T - U 
+$$ 
+Where $T$ is the kinetic energy and $U$ is the potential energy. The kinetic energy term will be 
+$$ 
+T = \frac{1}{2}m(\dot{x}^2 + \dot{y}^2)
+$$
+Due to the choice of coordinates we have to say the height it the total height $h$ minus the $y$ component. This will be 
+$$
+U = mg(h - y \sin \alpha)
+$$
+If we combine the two terms then we get the Lagrangian to be 
+$$ 
+\mathcal{L} = \frac{1}{2}m(\dot{x}^2 + \dot{y}^2) - mg(h - y \sin \alpha)
+$$
+So we will have two Euler-Lagrange equations because we have two coordinates to deal with. Starting with $x$ we have 
+$$
+\frac{\partial \mathcal{L}}{\partial x} - \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}} = 0
+$$
+Since $x$ is not explicitly stated in the Lagrangian we know 
+$$
+\frac{\partial \mathcal{L}}{\partial x} = 0
+$$
+Next we look at 
+\begin{align*}
+\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}} &=  \frac{d}{dt}\left(m\dot{x} \right) \\
+&= m \ddot{x}
+\end{align*}
+So our Euler-Lagrange in the $x$ coordinate is
+$$
+\boxed{m\ddot{x} = 0}
+$$
+
+Now we can look at the $y$ coordinate. The Euler-Lagrange equation will be 
+$$
+\frac{\partial \mathcal{L}}{\partial y} - \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}} = 0
+$$
+Starting again with the first term 
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial y} &= \frac{\partial}{\partial y }\left( \frac{1}{2}m(\dot{x}^2 + \dot{y}^2) - mg(h - y \sin \alpha) \right)\\
+&= mg \sin \alpha \\
+\end{align*}
+And the second term will be 
+\begin{align*}
+\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}} &=  \frac{d}{dt}\left(m\dot{y} \right) \\
+&= m \ddot{y}
+\end{align*}
+If we combine the two $y$ terms we get 
+$$
+mg \sin \alpha - m\ddot{y} = 0
+$$
+Since it is tradition we then solve for $\ddot{y}$
+$$
+\boxed{\ddot{y} = g \sin \alpha}
+$$
+This make sense physically because gravity is only in the $y$ direction.
+
+\bigskip
+
+\noindent \textbf{7.8(a.)}
+We start off with the Lagrangian 
+$$
+\mathcal{L} = T - U
+$$
+Since we have two masses the kinetic energy will be a sum of the two. 
+$$
+T = \frac{1}{2}m \dot{x}_1^2 + \frac{1}{2}m \dot{x}_2^2 
+$$
+And the potential energy was given in the problem with $x = (x_1 - x_2 - l)$. So if we plug $x$ in then we get 
+$$
+U = \frac{1}{2}k(x_1 - x_2 - l)^2 
+$$
+So if we combine the kinetic and potential energy the resulting Lagrangian is 
+$$
+\boxed{\mathcal{L} = \frac{1}{2}m \dot{x}_1^2 + \frac{1}{2}m \dot{x}_2^2 - \frac{1}{2}k(x_1 - x_2 - l)^2 }
+$$
+\textbf{(b.)}
+The problem gives us the center of mass(CM)
+$$
+X = \frac{1}{2}(x_1 + x_2)
+$$
+and we already know the relationship of 
+$$ 
+x = (x_1 - x_2 - l)
+$$
+So what we need to do to eliminate the $\dot{x}_1$ and $\dot{x}_2$ by expressing them in terms of $X$ or $x$. We'll just treat this as a linear system of two equations with two unknowns. Fortunately we can employ our friend Wolfram Alpha to solve this for us. We find 
+\begin{align*}
+x_1 &= \frac{1}{2}(l + x + 2X) \\
+x_2 &= -\frac{l}{2} - \frac{x}{2}+X \\
+\end{align*}
+However, we need to take the derivative of these because we want to replace $\dot{x}_1$ and $\dot{x}_2$. We do this and find that 
+
+\begin{align*}
+\dot{x}_1 &= \dot{X} + \frac{1}{2}\dot{x}\\
+\dot{x}_2 &= \dot{X} - \frac{1}{2}\dot{x} \\
+\end{align*}
+We can then plug $\dot{x}_1$, $\dot{x}_2$, and $x$ into our Lagrangian. The result is 
+$$
+\mathcal{L} = \frac{1}{2}m\left(\dot{X} + \frac{1}{2}\dot{x}\right)^2 + \frac{1}{2}m\left(\dot{X} - \frac{1}{2}\dot{x}\right)^2 - \frac{1}{2}k x^2
+$$
+We can simplify this Lagrangian down to a more palatable form of 
+$$
+\mathcal{L} = m\left(\dot{X}^2 + \frac{1}{4}\dot{x}^2\right) - \frac{1}{2}kx^2
+$$
+Now, we can write down the two Lagrangian's as instructed.  
+\begin{equation}
+\frac{\partial \mathcal{L}}{\partial X} - \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{X}}\right) = 0 
+\end{equation}
+\begin{equation}
+\frac{\partial \mathcal{L}}{\partial x} - \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{x}}\right) = 0
+\end{equation}
+
+\noindent \textbf{Part c.}
+Now we are tasked to solve these Lagrangian's. We begin with equation (1). Working piecewise again
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial X} &=  \frac{\partial}{\partial X}\left( m\left(\dot{X}^2 + \frac{1}{4}\dot{x}^2\right) - \frac{1}{2}kx^2 \right) \\
+&= 0
+\end{align*}
+Since $X$ is not explicitly stated in the Lagrangian the derivative will be zero. 
+\begin{align*}
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{X}}\right) &= \frac{d}{dt}\left( 2m\dot{X} \right) \\
+&= 2m\ddot{X}
+\end{align*}
+If we combine these two expression we end up with 
+$$
+2m\ddot{X} = 0
+$$
+Since it is tradition to solve for $\ddot{X}$ 
+$$
+\ddot{X} = 0
+$$
+But we were tasked with solving for $\ddot{X}$ so we need to integrate this twice. We end up with the familiar expression of a line. 
+$$
+\boxed{X(t) = Ax + B} 
+$$ 
+Where $A$ and $B$ represent constants of integration which can be found with initial conditions of the problem, but none were given. 
+
+\bigskip 
+
+\noindent Now we must find the equation of motion for equation (2). We begin with the Euler-Lagrange piecewise as usual. 
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial x} &=  \frac{\partial}{\partial x}\left( m\left(\dot{X}^2 + \frac{1}{4}\dot{x}^2\right) - \frac{1}{2}kx^2 \right) \\
+&= -kx
+\end{align*}
+Now for the second term we have 
+\begin{align*}
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{X}}\right) &= \frac{d}{dt}\left( \frac{1}{2}m\dot{x} \right) \\
+&= \frac{1}{2}m\ddot{x}
+\end{align*}
+If we combine the two terms we get 
+$$
+-kx - \frac{1}{2}m\ddot{x} = 0
+$$
+Well this looks awfully familiar! This is just an differential of constant coefficients just like what we solve in section 5.4. We went through that situation and know already that the solution is 
+$$ 
+x(t) = A e^{-\beta t} \cos(\omega t - \delta)
+$$
+However, in this scenario we have $\beta = 0$ so our solution will be 
+$$
+\boxed{x(t) = A \cos(\omega t - \delta)}
+$$ 
+where we have rearranged to match the form of equation (5.28) from the textbook. So 
+$$ 
+\omega = \sqrt{\frac{2 k }{m}}
+$$
+
+
+
+
+
+
+\end{document}

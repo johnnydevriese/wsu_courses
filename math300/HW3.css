@@ -1,0 +1,139 @@
+
+body{
+	margin:0px;
+}
+
+#headings h1{
+	
+	color: white;
+	font-family: arial;
+	
+}
+
+
+#headings h2{
+
+	color: purple; 
+	font-family: serif; 
+	font-size: medium; 
+	vertical-align: center; 	 
+		 
+}
+
+#headings{
+  background: crimson no-repeat center left;
+  padding: 15px;
+  margin: 0px;
+  background-size: cover;
+  
+}
+
+/*
+
+#nav{
+  background-color: rgb(180,180,180);
+  
+  margin: 0;
+  margin-top:0px;
+  padding: 0;
+  width: 100%;
+  
+}
+
+#nav a{
+  color: crimson;
+  text-decoration: none;
+}
+#nav a:hover{
+  color:green;
+}
+#nav li{
+  list-style-type: none;
+}
+
+*/
+
+#nav > ul {margin:0} 
+
+#nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    float:center;
+    background-color: gray; 
+}
+
+
+
+#nav  li {
+    position:relative;
+    display:inline-block;
+    list-style-type: none;
+    font-family: serif;
+    color: crimson;
+    padding:0 1rem; 
+}
+
+
+#nav li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    color:crimson; 
+    text-decoration:none; 
+}
+
+#content {
+
+	padding-left: 15px; 
+	
+
+}
+
+.figure{
+		
+	padding-right: 15px; 	
+	float:right; 
+	
+	
+}
+
+
+.figure span, .figure img {
+    display: block;
+    text-align:center; 
+}
+
+
+.equation{ 
+	
+	text-align:center; 
+	white-space:no-wrap ;
+	font-style: italic; 
+	
+} 
+
+
+
+#footnotes{
+  text-align: center;
+  font-size: small;
+  font-family: "Times New Roman", Times, serif;
+  clear: both;
+}
+
+
+#footer{
+  text-align: center;
+  font-size: small;
+  font-family: "Times New Roman", Times, serif;
+  clear: both;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,102 @@
+<html> 
+<body>
+
+<h1 style="text-align:center">
+<font size="10" color="orange">
+Johnny Minor 
+</font>	 
+</h1> 
+
+
+<font face="arial">
+	
+<!-- three ficticious autobiographical paragraphs -->	
+
+<table>
+
+<p style="text-align:center">
+Tigers are incredibly cool animals and most people find it hard to understand just how utterly amazing they are.
+</p>
+
+<p style="text-align:center">
+They usually live by themselves in the jungle and hunt whatever suits their fancy.  
+</p>
+
+<p style="text-align:center">
+Tigers are the most ferocious beasts and have been known to kill entire villages in India. 
+</p>
+
+</table>
+
+<!-- end of three paragraphs --> 
+
+
+
+<!-- begin of subheading --> 
+
+<h3 style="text-align:center">
+These are three of my favourite hobbies: 
+</h3>
+
+<!-- end of subheading --> 
+
+
+
+<!-- unordered list --> 
+
+<div style="text-align:center">
+
+<ul>
+
+<li>
+Mountain Biking
+</li>
+
+<li>
+Photography
+</li>
+
+<li>
+Camping and Hiking
+</li>
+
+
+</ul>
+
+</div>
+
+<!-- end unordered list --> 
+
+
+
+<!-- begin table --> 
+
+
+<table style= "width:100% ; border:1px solid black"> 
+	
+<tr>
+<td> Team </td> <td> Sport </td> <td> MHO </td>
+</tr>
+
+<tr>
+<td>Scuderia Ferrari - Maranello, Italy</td> <td>Formula 1</td> <td>They have incredible racing heritage.</td>
+</tr>
+
+</table>
+
+<!-- end table --> 
+
+<br><br><br>
+
+<img src="http://27.media.tumblr.com/tumblr_l7d1k96TdG1qzbyryo1_500.jpg">
+
+<br> <br> <br> <br> 
+
+<a href="http://math.wsu.edu">Find more information about the Mathematics Department at Washington State!</a>
+
+
+
+</font>
+
+</body>
+</html>

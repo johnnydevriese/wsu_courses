@@ -1,0 +1,83 @@
+body{
+  margin: 0px;
+  font-family: Magneto, Tahoma, Helvetica, sans-serif;
+}
+
+#titles h1{
+  color:red;
+  margin: 0px;
+  text-shadow: 2px 2px white;
+}
+#titles h2{
+  margin: 0px;
+  text-shadow: 2px 2px white;
+}
+#titles{
+  background: gray url("http://adams.math.wsu.edu/students/kcooper/css-butterfly.jpg") no-repeat center left;
+  padding: 15px;
+  margin: 0px;
+  background-size: cover;
+}
+
+#navigation{
+  float: left;
+  width: 200px;
+  height: 800px;
+  background-color: rgb(180,180,180);
+  font-size: x-large;
+}
+#navigation a{
+  color:crimson;
+  text-decoration: none;
+}
+#navigation a:hover{
+  color:yellow;
+}
+#navigation li{
+  list-style-type: none;
+}
+
+#notes{
+  float: right;
+  width: 200px;
+  min-height: 800px;
+  padding: 15px;
+  font-size: small;
+}
+
+#content{
+  margin-left: 220px;
+}
+
+.rightfloat{
+  float: right;
+  width: 25%;
+  font-size: small;
+  text-align:center;
+}
+img{
+  width: 100%;
+}
+
+#footer{
+  text-align: center;
+  font-size: small;
+  font-style: italic;
+  font-family: "Times New Roman", Times, serif;
+  clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

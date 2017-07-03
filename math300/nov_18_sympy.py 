@@ -1,0 +1,11 @@
+#sympy 
+
+from pylab import * 
+import sympy as sp 
+
+
+print(pi) 
+print(sp.pi) 
+
+
+

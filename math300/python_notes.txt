@@ -1,0 +1,541 @@
+
+from pylab import * 
+
+# STRINGS 
+hello = 'Hello, ' 
+print(hello[6])
+
+world = """world!"""
+
+hi = hello + world
+
+print(hi) 
+
+# Strings are objects. 
+print(hi.upper())
+#the () mean that they are METHODS of the CLASS
+
+#Object oriented porgramming 
+#Python encourages the use of "objects" - 
+#basically an object is always a collection of data together with functions to manage and manipulate those data. 
+#Thus each object is an entity that acts as a caretake for its private data. 
+#when we use the notation object_name.method_name
+#we are requesting that the object access or deliver or change some part of its data. 
+
+#there is no sprint. Instead we use the format method. 
+
+n = 4
+mytitle = '''Line segments used in trapezoids rule on {} subinterverals'''.format(n)
+print(mytitle) 
+#we can do multiple arguments 
+times = "it was the {} and {}".format('best','worst') 
+print(times) 
+
+#we can use a colon to specify formatting details. 
+error = pi/1000.
+
+err_str = 'the nrom of the error is {:.4f} '.format(error) 
+#six before the decimal and four after the decimal 
+err_str = 'the nrom of the error is {:10.4f} '.format(error) 
+#we can do scientific notation too 
+#python will always display the number first, the number of digits right of the decimal, and then maybe do how much total space you told it to. 
+err_str = 'the nrom of the error is {:8.4e} '.format(error) 
+
+print(err_str) 
+
+#gon wryt a trap rule 
+def trapezoid(f,a,b,n): 
+	h = float(b-a)/float(n)
+	#otherwise he won't get the b. 
+	x = arange(a,b+h,h)
+	fx = f(x)
+	#division takes longer than multiplication
+	integral = h*0.5*(fx[0]+fx[n]+2.0*sum(fx[1:n]))
+	
+	return integral
+	
+def f(x): 
+	return x*x
+
+a = 0.0
+b = 1.0 
+n = 4.0 
+
+print(trapezoid(f,a,b,n))
+
+
+#****************************** NOV. 9th NOTES ********************************* 
+# Flow control!! 
+
+for i in [0,1,2,3]:
+	print(i)
+	
+for i in arange(0,4):
+	print(i) 
+
+for i in range(4): 
+	print(i) 
+
+
+# When do we need 'for' loops? 
+#1. when each new computation depends on the result of previous computations. 
+#2. When we need to fill in the entries of an array
+# in a particularly complicated way, possibly dependent on other entries. (partially overlaps number 1) 
+
+
+# Legendre polynomials 
+# three term recurrence relation. : 
+# (n+1)P_{n+1} (x) = (2n+1) xP_n(x) - nP_{n-1}(x) 
+#plot these up to degree d 
+#legendre polynomials are defined from -1 to 1 
+
+#this is how kcooper would do it. 
+d = 4 
+delta_x = 0.02 
+x = arange(-1.0,1.0+delta_x,delta_x) 
+n_points = len(x) 
+#make a d by n_points matrix and then fill each row with each legendre polynomial. 
+L = zeros([d+1,n_points]) 
+#colon says: just get em all 
+L[0,:] = ones([1,n_points]) #legendre polynomial of degree 0 
+L[0,:] = x  #legendre polynomial of degree 1 
+
+plot(x, L[0,:], 'b', x, L[1,:])
+
+
+
+#need to go one beyond otherwise we won't get the whole thing!! 
+for n in arange(1,d): 
+	L[n+1,:] = (1.0/(n+1.0)) *((2.0*n+1.0) * x * L[n,:] - n*L[n-1,:]) 
+	plot(x, L[n+1,:], 'b')
+	
+#we can approximate a function with a series of polynomials! And in the limit the polynomials converge to the actual function! 
+
+title('Legendrre Polynomials up to degree {}'.format(d)) 
+xlabel('x')
+#we can render this in latex! 
+ylablel(r'$P_n(x)$') 
+xlim(-1,1)
+
+
+show()
+
+#************************* November 13th notes ******************************* 
+
+#from numpy import * 
+#we can import files other ways. 
+#import time 
+
+#I can time stuff as follows 
+t0 = time.time() 
+print(t0) 
+t1 = time.time() = t0 
+print(t1) 
+
+
+#import strings as s 
+#can call things in strings with prefix "s."
+
+def f(x): 
+	return (x>pi/4.0) * (x-pi/4.0) 
+	
+#kcooper is trying to screw up trazpezoidal rule 
+def g(x): 
+	return (x>pi/4.0) 
+
+exact = 0.5 * (1-pi/4.0)**2 
+exactg = 1.0-pi/4.0 
+
+t0 =time.time() 
+trap_approx = s.trapezoid(f,0,1, 100)
+t1 = time.time() - t0 
+print(t1) 
+
+print('the trap error was {}'.format(exact-trap_approx))
+
+def adaptive_trap(f, a, b, tolerance): 
+	#we need the function values. 
+	fleft = f(a) 
+	fright = f(b) 
+	#base times height to get the area. 
+	int_coarse = float(b-a) * (fleft + fright) * 0.5 
+	f_this = float(a + b) * 0.5
+	int_fine = 0.25 * float(b-a) * (fleft+fright+ 2.0*f(f_this)) 
+	difference = absolute(int_coarse - int_fine)
+	#this is the fail safe if statement. if the thing is on order of machine precision then just be done. 
+	if float(b-a) < 1e-14:
+		return int_fine 
+	
+	elif tol < difference : 
+		tol2 = tol * 0.5 
+		return adaptive_trap(f, a, f_this, tol2) + adaptive_trap(f, f_this, b, tol2)	
+		
+	else: 
+		return int_fine 
+		
+t0 = time.time() 
+adapt_int = adaptive_trap(f,0.0, 1.0, 0.0000001) 
+t1 = time.time()  -t0 
+#print (adapt_int-exact)
+
+#tolerances never catches up with error 
+
+
+
+
+#*******************************************************************************
+
+#sympy 
+
+from pylab import * 
+import sympy as sp 
+
+
+print(pi) 
+print(sp.pi) 
+
+#there is a symbolic pi, which we can evaluate using the evalf method. 
+
+#get 32 digits of pi 
+print(sp.pi.evalf(32))
+
+#There are other kinds of numeric objects 
+
+p = sp.Rational(3,7) 
+q = sp.Rational(2,3) 
+print(p+q)
+print(p*q) 
+
+#when dealing with symbolic results, things can get ugly 
+print(sp.integrate('x*sin(3/x)'))
+
+#that is ugly. Sympy has a "pretty print" function. 
+sp.pprint(sp.integrate('x*sin(3/x)'))
+
+#In general, we want to use symbolic variables. 
+sp.var('x,y') 
+sp.pprint(x/2) 
+
+
+#now we can define expressions in terms of symbolic variables. 
+s = x*sp.sin(3/x) 
+
+#Now we can evaluate this expression anywhere. 
+print(s.subs(x,pi))
+
+#kcooper does song and dance between 'f' and 'f(x)' 
+#f(x) is NOT a function, it's the value of the function. It's the value of function 
+# f is just the function and is a rule for mapping one input to another. 
+#function you give it an input and get an output. 
+#s is just an expression and is a collection of symbols you cannot do s(x) 
+print(s.subs(x,pi).evalf(50))
+
+
+#We have noted that s is an expression. Let's make a function. 
+
+t = lambda x: x*sp.sin(3/x) 
+
+#y is a symbolic variable. 
+#Note now the difference between the expression s and the function t 
+sp.pprint(s(y))
+sp.pprint(t(y))
+
+#Now let's define a new expression. 
+#don't care about 64.0 or anything because they are just symbolic numbers and we could use evalf() to evalute to arbitrary precision 
+u = 64*x**4-100*x**3 + 22*x**2 - 65*x+4
+
+#didn't have to tell him how many points to choose or anything. 
+sp.plot(u,(x,-.5,1.5))
+#sympy plot doesn't need the show() command 
+
+3h = arange(-0.5,1.5,0.001)
+
+h = (1.5 -(-.5))/1000.0 
+x_vec = arange(-.5,1.5+h,h)
+
+u_vec = zeros(len(x_vec))
+
+#have to evaluate u at 1001 points. 
+for i in arange(len(x_vec)): 
+	u_vec[i] = u.subs(x, x_vec[i])
+
+plot(x_vec, u_vec)
+show() 
+
+
+#***********************************NOVEMBER 30TH LECTURE NOTES ******************************* 
+
+#trying to find the root of the polynomial. K Cooper designed it to have the root at x = 1/16 
+print(u.subs(x,sp.Rational(1,16)))
+first_root = sp.Rational(1,16) 
+
+v = sp.simplify(u / (x-first_root))
+sp.pprint(v)
+
+
+#simplify always checks to divide out polynomial factors, and execute trig identities. 
+#x^2 + 2x + 1 is a perfect square. 
+sp.pprint((x**2 + 2*x + 1) / (x + 1) )
+sp.pprint(sp.simplify((x**2 + 2*x + 1) / (x + 1)))
+sp.pprint((sp.sin(x)**2 + sp.cos(x)**2 / sp.cos(x)))u  
+
+
+
+#We can factor polynomials 
+sp.pprint(u.factor()) 
+
+#we can also expand polynomials 
+w = u.factor()
+sp.pprint(w) 
+sp.pprint(sp.expand(w)) 
+
+sp.var('a')
+p = (x -1) * (x-a) * (x +a) 
+
+sp.pprint(p.expand().collect(x))
+sp.pprint(p.expand().collect(a))
+sp.pprint(sp.horner(p,x))
+
+#sympy can do calculus 
+
+#this limit would be 1 
+sp.pprint(sp.limit(sp.sin(x) / x , x, 0))
+
+#limit would be zero(0) because it's 0 * bounded function 
+sp.pprint(sp.limit( x * sp.sin(3/x), x, 0))
+
+#you can take a limit of a limit 
+sp.pprint(sp.limit(sp.limit((x**2+1) / (a*x**2 + 2*x + 1), x , sp.oo), a, 97)
+
+#sympy can take derivatives
+#differentiate u with respect to x  
+sp.pprint(sp.diff(u,x))
+
+#we can take a second derivative. 
+sp.pprint(sp.diff(u,x,2))
+
+u_prime = sp.diff(u,x) 
+sp.pprint(u_prime) 
+
+u_double_prime = sp.diff(u,x,2)
+sp.pprint(u_double_prime.expand() - sp.diff(u_prime,x))
+
+#the things inside would have to be REAL 
+arc_length_integrand = sp.sqrt(1 + sp.diff(u,x)**2)
+
+arc_length = sp.integrate(arc_length_integrand, (x,0,1)) 
+
+#it doesn't know how to evaluate the integral so it'll just print the last known correct answer. 
+#but we need to force it to do the integral 
+sp.pprint(arc_length)
+
+#can get 10 digits if you want. 
+arc_length = sp.integrate(arc_length_integrand, (x,0,1)).evalf(10) 
+sp.pprint(arc_length) 
+
+#more integrals 
+#u is a quartic polynomial 
+sp.pprint(sp.integrate(u))
+
+sp.pprint(sp.integrate(arc_length) )
+
+#showing to use a tuple going from negative infinity to positive infinity. 
+#use .evalf() to make him do it with 20 digits of accuracy. 
+sp.pprint(sp.integrate(sp.exp(-x**2), [x,-sp.oo,sp.oo]).evalf(20))
+#solution is sqrt(pi) 
+
+# ******************* SERIES **********************88 
+#why do we learn series? because polynomials are what we can evluate on a computer. 
+#anything we can write as a series we can integrate. 
+
+s = sp.series(sp.sin(x), x)
+
+sp.pprint(s)
+
+#big O denotes what the dominant term is. Exampel is  O<x^6> means that x^6 is the dominant term  
+
+#can expand something other than 0. 
+s = sp.series(sp.sin(x), x, 3)
+
+#now what if we want 16 terms from the series. 
+s = sp.series(sp.sin(x), x, 3, 16) 
+
+#this would be expanding around 0 
+s = sp.series(sp.sin(x), x, 0, 16) 
+
+#you get a list of ordered terms. We could reconstruct the function by taking the sum of these terms in the list. 
+t = s.as_ordered_terms() 
+
+#if you give it a negative index it will start at the end. 
+t = sum(s.as_ordered_terms()[0:-1])
+ 
+sp.pprint(t) 
+
+h = 0.01 
+x_vec = arange(-1.0, 1.0 + h, h) 
+
+#y_vec must be numbers! 
+y_vec = zeros(len(x_vec))
+
+for i in arange(len(x_vec)): 
+	y_vec[i] = t.subs(x, x_vec[i]).evalf()
+
+plot(x_vec, y_vec, x_vec, sin(x_vec)) 
+show()
+
+
+#********************* DECEMBER 4th NOTES *************** 
+
+#we could use less terms to make it look worse. 
+
+************************************************************************\
+#!/usr/bin/python
+#have to do chmod 700 - owner can read write and execute but nobody else. 
+
+#SQL - Structured Query Language 
+#before it was SEQL and structured english query language 
+#it's all about database managment system 
+# 
+
+# Database - a collection of tables 
+# Table - a collection of data organized by rows and columns 
+# Columns - named structures that contain certain kinds of data. 
+# Records - a row of a table 
+# field is one cell of the data. 
+
+#free and good is mySQL 
+#nobody really ever talks to databases directly and usually use a GUI or API 
+
+#API - application programming interface. 
+#we're going to use an API for python to get at mySQL. 
+#k.cooper used to ODBC or some dam thing. 
+
+import MySQLdb as m
+
+#now we have to signup 
+
+#db means database. 
+db = m.connect(host='mathlab.math.wsu.edu', user='m300', passwd='4cougs', db='M300')
+
+#now make a "cursor" to hold output from our database queries.. 
+
+crs = db.cursor()
+
+#We can use the cursor to iterate through our results 
+#it is customary to put SQL commands in ALL CAPS (or keywords) 
+#query = "SELECT * FROM class;"
+
+#query = "INSERT into class (name, color, animal, sport, percent, favdate) values ('johnny', 'red','tiger', 'motogp', '22', '2000-01-01');"
+
+#query = " DELETE FROM class WHERE name='Cooper' AND animal='dog';"
+
+#query = "SELECT * FROM class WHERE animal='cat' AND color='red';"
+
+#can use the percent(%) as a wildcard 
+#query = "SELECT * FROM class WHERE animal LIKE 'cat%' AND color='red';"
+
+#can change an entry or field in the list with this. 
+#query = "UPDATE class SET animal='lion' WHERE animal='elephant';"
+
+
+#optimized compiled code in mySQL vs python is interpreted and SLOW!!1 
+query = "SELECT c.name,  a.dangerous from class c , animals a WHERE c.color='red' AND a.animal=c.animal order by c.name;" 
+
+#showing off greater than or equal to. 
+query = "SELECT * FROM class WHERE favdate >= '2000-01-01';"
+
+crs.execute(query)
+
+#Now go through the results:
+records = crs.fetchall() 
+
+for rec in records: 
+	print("{0} loves the color {1}".format(rec[0],rec[1])) 
+	
+#want to minimize the processing that you do in python and stuff. 
+ 
+
+
+
+
+db.close()
+
+
+#!/usr/bin/python2.7 
+
+from pylab import * 
+import csv 
+from scipy.stats import * 
+
+#Final Exam Question: here are three lines of code what do they do? 
+def read_csv(filename): 
+	#we don't know big A is going to be. 
+	A = []
+	data = csv.reader(open(filename, 'r'))
+	
+	#all the stuff in the file 
+	for row in data:
+		A.append(row) 
+	#return A as a numpy array instead of a list and cast everything as a float 
+	return array(A).astype(float)  
+
+#now we can use this. 
+
+#this reads froma  file called filename and puts the results ina numpy array of floats. 
+
+mydata = read_csv('pullman_temp.csv') 
+
+print(mydata) 
+
+#now we want to plot it 
+
+year = mydata[:,0]
+temp = mydata[:,1]
+
+plot(year,temp, 'd',label='average temperature') 
+#scatter(year,temp) 
+
+#just for fun, let's plot the trend 
+
+slope, intercept, r, p, std_err = linear_regression(year, temp) 
+
+plot(year, slope * year + intercept, label='regression') 
+
+xlabel('Year') 
+ylabel('Temperature')
+title('Average temperature in Pullman') 
+legend(loc='lower left') 
+
+print(slope) 
+
+
+
+
+show()
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

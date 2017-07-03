@@ -1,0 +1,96 @@
+\documentclass[10pt, reqno]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+%\numberwithin{section}{equation} 
+
+
+\section*{Principle Vectors}
+%\newcounter{section}
+\setcounter{section}{39}
+
+\textbf{\arabic{section}.} For a matrix $A$ with linear elementary divisors there exist $n$ eigenvectors
+spanning the whole $n$-space. If A has a non-linear divisor, however, this is not
+true since there are then fewer than n independent eigenvectors. It is convenient
+nevertheless to have a set of vectors which span the whole $n$-space and to choose
+these in such a way that they reduce to the $n$ eigenvectors when $A$ has linear
+divisors. Now we have seen that in the latter case the eigenvectors may be taken
+as the columns of a matrix $X$, such that
+
+
+
+%TODO: Get numbering correct! 
+\begin{equation}
+X^{-1}AX = \textrm{diag}(\lambda_i).
+\end{equation}
+
+\noindent A natural extension when the matrix has non-linear divisors is to take, as base
+vectors the $n$ columns of a matrix $X$ which reduces $A$ to the Jordan canonical form.
+
+These vectors satisfy important relations. It will suffice to demonstrate them
+for a simple example of order 8. Suppose the matrix $A$ is such that
+
+\begin{equation}
+AX = A
+\begin{bmatrix}
+C_3(\lambda_1) & & & \\
+& C_2(\lambda_1) & & \\
+& & C_2(\lambda_2) & \\
+& & & C_1(\lambda_3) \\
+\end{bmatrix},
+\end{equation}
+
+\noindent then if $x_1, x_2, \dots,x_8$ are the columns of $X$, we have equating columns
+
+%TODO: get some brackets going on the end.
+
+\begin{equation}
+	\left.
+	\begin{aligned}
+	Ax_1 &= \lambda_1 x_1 + x_2, & Ax_4 &= \lambda_1 x_4 + x_5 , & Ax_6 &= \lambda_2 x_6 + x_7, & Ax_8 &= \lambda_3 x_8 \\
+	Ax_2 &= \lambda_1 x_2 + x_3, & Ax_5 &= \lambda_1 x_5, & Ax_7 &= \lambda_2 x_7 & & \\
+	Ax_3 &= \lambda x_1 & & & \\ 
+	\end{aligned}
+	\right\} ,	
+\end{equation}
+
+
+\noindent from which we deduce 
+\smallskip
+
+\begin{equation}
+	\left.
+	\begin{aligned}
+	 {&(A -\lambda_1I)}^3 x_1 = 0, & {&(A-\lambda_1I)}^2 x_4 = 0, & { &(A-\lambda_2I)}^2 x_6 = 0, & &(A-\lambda_3 I) x_8 = 0 \\
+	{ &(A-\lambda_1I)}^2 x_2 = 0, & &(A - \lambda_1I)x_5 = 0, & &(A-\lambda_2I)x_7 = 0 &  \\
+	 &(A-\lambda_1I)x_3 = 0 & & & \\ 
+	\end{aligned}
+	\right\} .
+\end{equation}
+
+Each of these vectors therefore satisfies a relation of the form
+
+\begin{equation}
+{(A-\lambda_i I)}^j x_k = 0. 
+\end{equation}
+
+%could change the (39.5) to an actual counter? 
+A vector which satisfies equation (39.5) but does not satisfy a relation of lower degree in $(A-\lambda_i I)$ is called a \textit{principal vector of grade j} corresponding to $\lambda_i$.
+
+%this relies on the special command blfootnote defined in the preamble. 
+\blfootnote{From J. H. Wilkinson, \textbf{The Algebraic Eigenvalue Problem}, Oxford University Press, Oxford,
+1965.}
+
+\end{document}

@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+
+\begin{document}
+
+\begin{center}
+\textbf{\large{Astronomy 345 Homework \#6 }} \\
+By:Johnny Minor 
+\end{center}
+
+\bigskip 
+
+
+In this problem we solved Kepler's equation: 
+
+\begin{equation}
+t - \tau = E - \varepsilon \sin(E) 
+\end{equation}
+
+\noindent where t - $\tau$ is the mean anomaly(a parameterization of time) and $E$ is the eccentricity anomaly(a parameterization of polar angle), and $\varepsilon$ was given to be 0.2 and a = 1.1 A.U. This equation is a parameterization of $r$ and $\theta$. They are defined as follows: 
+
+$$ 
+r = a(1-\varepsilon cos(E))
+$$
+
+$$
+\theta = \sqrt{\frac{1 + \varepsilon}{1 - \varepsilon}} \tan(\frac{E}{2}
+$$
+
+
+This transcendental equation (Eq.1) was solved using the Newton-Raphson method for root finding using the equation 
+
+\begin{equation}
+E_{n+1} = E_{n} - \frac{f(E_{n})}{f'(E_{n})} = 
+E_{n} - \frac{ E_{n} - \varepsilon \sin(E_{n}) - M(t) }{ 1 - \varepsilon \cos(E_{n})}.
+\end{equation}
+
+\noindent Below are the tabulated results of the Python program for the given values of $t-\tau$. 
+
+\begin{center}
+\begin{tabular}{ | c | c | c | c | }
+	\hline
+	t - $\tau$ (yr) & E (degrees) & r (A.U.) & $\theta$ (degrees) \\ \hline 
+	0.0 & 0.0 & 0.88 & 0.0 \\ \hline
+	0.2 & 14.29 & 0.88 & 12.67 \\ \hline
+	0.4 & 28.36 & 0.91 & 25.13 \\ \hline
+	0.6 & 42.05 & 0.94 & 37.26 \\ \hline
+	0.8 & 55.25 & 0.97 & 48.96 \\ \hline 	
+	
+	
+\end{tabular}
+
+
+\end{center} 
+
+
+
+\end{document}

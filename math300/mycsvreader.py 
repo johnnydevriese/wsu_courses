@@ -1,0 +1,54 @@
+#!/usr/bin/python2.7 
+
+from pylab import * 
+import csv 
+from scipy.stats import * 
+
+#Final Exam Question: here are three lines of code what do they do? 
+def read_csv(filename): 
+	#we don't know big A is going to be. 
+	A = []
+	data = csv.reader(open(filename, 'r'))
+	
+	#all the stuff in the file 
+	for row in data:
+		A.append(row) 
+	#return A as a numpy array instead of a list and cast everything as a float 
+	return array(A).astype(float)  
+
+#now we can use this. 
+
+#this reads froma  file called filename and puts the results ina numpy array of floats. 
+
+mydata = read_csv('pullman_temp.csv') 
+
+print(mydata) 
+
+#now we want to plot it 
+
+year = mydata[:,0]
+temp = mydata[:,1]
+
+plot(year,temp, 'd',label='average temperature') 
+#scatter(year,temp) 
+
+#just for fun, let's plot the trend 
+
+slope, intercept, r, p, std_err = linear_regression(year, temp) 
+
+plot(year, slope * year + intercept, label='regression') 
+
+xlabel('Year') 
+ylabel('Temperature')
+title('Average temperature in Pullman') 
+legend(loc='lower left') 
+
+print(slope) 
+
+
+
+
+show()
+
+	
+	

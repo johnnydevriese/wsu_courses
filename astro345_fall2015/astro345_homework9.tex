@@ -1,0 +1,131 @@
+\documentclass[12pt, leqno]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%american mathematical society - AMS 
+
+\usepackage{listings}
+\lstset{
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true
+}
+
+\usepackage{enumerate}
+
+\usepackage{wrapfig}
+\usepackage{subfig}
+
+\oddsidemargin = 0in
+\textwidth=6.5in
+
+\begin{document}
+
+{\centering 
+
+\textbf{Astronomy 345 Homework \#8} \\
+Johnny Minor 
+
+\medskip 
+}
+
+\noindent \textbf{6.6} 
+The craters are perfectly circular in nature with well defined edges. We can also see even today that there are other asteroids in the Kuiper belt and asteroid belt and can imagine that they would eventually be perturbed and go on to hit other planets. We also know that during the collapse of the nebula we would expect many more asteroids to be flying around. Futhermore, the impacts from the meteorite look nothing like the lava flows that we see on earth. 
+
+\bigskip
+
+\noindent \textbf{6.8} 
+We can that they formed in parent bodies that were 30 to 400 km across by what type of rock formed. We can tell this because what we find it rock that hasn't been heated to extreme temperatures or rock that has been cooled very quickly. This means that the rock was insulated in by material(about 2 to 50km thick) and has cooled somewhat slowly under pressure corresponding to a parent body of 30 to 400 km. 
+
+\bigskip
+
+\noindent \textbf{6.11}
+We can tell because of the fragmentation. This means that meteoroid's were smashed together and the remnants were scattered around. We can also tell that they underwent collisions just by their inherent shape too. There is also evidence of collisions by the Neumann bands. Also, the book states that breccias parent bodies went through complicated collisions and fragmentations that mixed parent bodies. 
+
+\bigskip
+
+\noindent \textbf{7.5}
+This is because the parent body's interior might have been nonhomogeneous to begin with. Therefore when the smaller a meteoroid smashed into the larger asteroid it revealed the fragmentation. 
+
+\bigskip 
+
+\noindent \textbf{7.7}
+Delsemme was able to show in 1977 that water, methane and, and ammonia gases were being emitted by the comet nucleus. This shows that perhaps most comets were formed at a similar time and location to the other planets in the solar system. 
+
+\bigskip
+
+\noindent \textbf{7.8}
+We could argue that due to processes in space like cosmic ray exposure, production of impact glasses and pulverization by micrometers have caused space weathering and altered the spectra. Therefore explaining the discrepency with observational data. 
+
+We could also argue that this is because the asteroids would be differentiated asteroid mantle material. Further a breakup of chondrite parent body near a resonance could mean a possibility of many chondrites on Earth crossing orbits recently. 
+
+\bigskip
+
+\noindent \textbf{7.17}
+If we begin by setting the force of gravity equal to the centrifugal force and expressing the velocity in terms of the rotational period. 
+
+$$ 
+\frac{GMm}{R^2} = \frac{mv^2}{R} = \frac{4 \pi R^2 m}{P_c^2 R}
+$$
+
+\noindent Where $G$ is Newton's gravitational constant $M$ is the mass of the parent body, $m$ is the mass of the asteroid rotating around. $P_c$ is the period of orbit. If we solve for the period we end up with 
+$$
+P_{critical} = \sqrt{\frac{3 \pi}{G \rho}}
+$$ 
+Where $\rho$ is the density and is equal to 
+
+$$
+\rho = \frac{M}{4/3 \pi R^3}
+$$
+
+\noindent If we use 2000 kg$\cdot \mathrm{m}^{-3}$ then we get a period of: 
+$$ 
+P_{critical} = 1.68 \cdot 10^7 \mathrm{s}
+$$
+
+\noindent \textbf{Part b.} 
+Surprisingly the mass is irrelevant as we found the critical period only depends on the density. 
+
+\noindent \textbf{Part c.}
+We needed the density in part a to make an accurate calculation. I used 2000 kg$\cdot\mathrm{m}^{-3}$ because that seemed like an accurate choice in comparison to the values of density for asteroids found in Table 7-4 of the textbook. 
+
+\noindent \textbf{Part d.}
+They could see a fluctuation in the light curve due to the elongation of the asteroid tumbling end over end. They could also see a fluctuation in the light curve due to light and dark markings on the asteroid. They could have also compared light curves of reflected solar and emitted thermal infrared radiation. 
+
+\noindent \textbf{Part e.}
+I would expect to see the light curve go back up again if the asteroid is due to elongation or due to light and dark markings. 
+
+\bigskip
+
+\noindent \textbf{7.21}
+Well, since I can't seem to find where the textbook refers to emissivity. I'll apply my acute understanding and hope for the best. We know the the equation for flux with albedo to be 
+$$ 
+F = \frac{L_{Sun}}{4 \pi R^2} (1-a). 
+$$
+
+\noindent Where $L_{Sun}$ is the solar luminosity, $R$ is the distance from the sun to the planet or asteroid of interest and $a$ is the albedo. We can then set this equal to the Stefan-Boltzmann law, assuming that the asteroid is a blackbody. We assume that if we multiply by the emissivity $\epsilon$ that will give us the correct expression. This fits in the limit because an emissivity of 1.0 will correspond to a perfect blackbody. So our expression is 
+$$
+\frac{L_{Sun}}{4 \pi R^2} (1-a) = \epsilon \sigma T^4 .
+$$
+Where $\sigma$ is the Stefan-Boltzmann constant and T is the temperature in Kelvin. We can now rearrange to solve for T, and get 
+$$ 
+T = \left(\frac{L_{sun}}{4 \pi \epsilon \sigma R^2 }(1-a)\right)^{1/4} .
+$$
+We then plug in $R=8.085\cdot10^{11}$m, $\epsilon=0.2$, and $L_{Sun}=3.846\cdot10^{26}$W and we get a temperature of 
+$$ 
+T = 187.857 \ \mathrm{Kelvin} .
+$$
+
+\noindent \textbf{Part b.}
+We can now rearrange our equation for $R$ and set $T=273\mathrm{K}$
+$$
+R = \left(\frac{L_{Sun}}{4 \pi \epsilon \sigma T^4}(1-a)\right)^{1/2}
+$$
+We find that R would need to be 
+$$
+R = 3.81\cdot10^{11} \ \mathrm{m}
+$$
+
+
+
+\end{document}

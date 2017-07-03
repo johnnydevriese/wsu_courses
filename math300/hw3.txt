@@ -1,0 +1,213 @@
+
+
+<html>
+<head>
+<link rel="stylesheet" href="HW3.css" type="text/css">
+</head>
+<body>
+<div id="headings">
+<h1>A Mathematical Web</h1>
+<h2>Roots of Polynomials</h2>
+</div>
+<div id="nav">
+<ul>
+  <li><a href="http://math.wsu.edu/kcooper/M300/HWpoly_home.html">Home</a></li>
+  <li><a href="http://math.wsu.edu/kcooper/M300/HWpoly_quadratic.html">The Quadratic</a></li>
+  <li><a href="http://math.wsu.edu/kcooper/M300/HWpoly_cubic.html">The Cubic</a></li>
+  <li><a href="http://math.wsu.edu/kcooper/M300/HWpoly_quartic.html">The Quartic</a></li>
+  <li><a href="http://math.wsu.edu/kcooper/M300/HWpoly_galois.html">Galois Theory</a></li>
+</ul>
+</div>
+<div id="content">
+<h1>The Cubic</h2>
+<p>
+A polynomial of degree three is called a cubic, and an equation involving
+a cubic polynomial whose value is zero is called a cubic equation.  
+The solutions of a quadratic equation are called the <i>roots</i> of the
+polynomial.  Figure 1 shows the graph of a cubic polynomial. 
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Polynomialdeg3.svg/240px-Polynomialdeg3.svg.png"/> 
+Figure 1.  A cubic polynomial<sup>*</sup>
+</div>
+</p>
+<p>
+As with quadratics, the ideas around cubic polynomials were familiar to ancient peoples, 
+including the Babylonians. However, those ancients were not nearly as good 
+at solving for roots of cubics as they were at quadratics. It was not until the time of 
+Tartaglia (1500-1576) and Cardano (1501-1576) that Europeans began to be able to solve a general class of cubics. 
+</p>
+
+<p>
+Cubics are handled very similarly to quadratics - indeed, the problem of finding 
+their roots devolves to finding one root, factoring the polynomial, and then using 
+the quadratic formula on the part that remains. We can write a general cubic polynomial as	
+</p> 
+
+
+<p class="equation">	
+<math> 	
+
+<!--added some MATHML in Here  -->
+<math> 
+<mi>p</mi> <mfenced> <mi>x</mi> </mfenced> 
+<mo> = </mo>
+<mi>a</mi> <msup> <mi>x</mi> <mn>3</mn> </msup>
+<mo> + </mo> 
+<mi>b</mi> <msup> <mi>x</mi> <mn>2</mn> </msup>
+<mo> + </mo> 
+<mi>c</mi> <mi>x</mi> 
+<mo> + </mo> 
+<mi> d </mi> 
+</math> <mi>.</mi> 
+</p>
+
+<p>
+Naturally we have a tacit assumption that <mi>a</mi> <mo> &ne; </mo> <mn>0</mn>, 
+since otherwise the polynomial would have degree less than three. For simplicity we assum that all the coefficients are real, 
+though the following expression remain valid when they are complex. We note that inasmuch as the dominant term <math> <mi>x</mi> <mn>3</mn> </msup> </math> 
+goes toward positive infinity as <math> <mi>x</mi> </math> increases, and toward negative infinity as 
+<math> <mi> x </mi> </math> decrease, there is always a point where the cubic has value zero. 
+In other words, we are guaranteed one real root. 
+</p>
+
+<p>
+In writing the roots of the polynomial, there is a term that occurs often. Let 
+
+
+<!-- This was finished on 9.11.15 --> 
+
+<p class="equation">
+<math> 
+<mo>&Lambda;</mo> <mo>=</mo> 
+
+<mroot>
+<mrow> 	
+	
+	<mfrac> <mn>1</mn> <mn> 2 </mn> </mfrac> 
+	
+		<mfenced open="[" close="]">
+		<mrow> 
+			
+			<mi>B</mi>  <mo> + </mo> 
+			
+			
+			<mroot> 
+			<mrow> 
+				<msup> <mi>B</mi> <mn> 2 </mn> </msup>  <mo> - </mo> 
+				
+				<mn>4</mn> <mi>C</mi> 
+			</mrow> 	
+			<mn>2</mn> 
+			</mroot> 
+			
+			
+			
+		</mrow> 
+		</mfrenced> 
+
+</mrow> 
+<mn>3</mn>
+</mroot> <mo>,</mo> 
+</math> 
+</p>
+
+<p>
+	
+where <math> <mi>B</mi> <mo>=</mo> <mn>2</mn> <msup> <mi>x</mi> <mn>2</mn> </msup 
+<mo>-</mo> <mn>9</mn> <mi>a</mi><mi>b</mi><mi>c</mi> <mo>+</mo> <mn>27</mn><msup> <mi>a</mi> <mn>2</mn> </msup <mi>d</mi> </math> 
+and <math> <mi>C</mi> <mo>=</mo> <msup> <mi>b</mi><mn>2</mn> </msup> <mo> - </mo> <mn>3</mn> <mi>a</mi> <mi>c</mi></math>. 
+
+Using this notation, we can then write the first root of <math> <mi>p</mi> </math> as 
+
+<p class="equation"> 
+
+<math> 
+<msub> <mo>&lambda;</mo> <mn>1</mn> </msub> <mo>=</mo>  
+<mo>-</mo> 
+<mfrac> <mn>1</mn>  <mrow> <mn>3</mn><mi>a</mi> </mrow> </mfrac>  
+
+<mfenced>
+<mrow> 	
+	<mi>b</mi> 
+	<mo>+</mo>  
+	<mo>&sigma;</mo> 
+	<mo>&Lambda;</mo>
+	<mo>+</mo>
+	<mfrac> <mi>C</mi> <mrow> <mo>&sigma;</mo <mo>&Lambda;</mo> </mrow>	
+</mrow> 	
+</mfenced> 
+
+</p>
+ 
+</p>
+
+<p> 
+The other two roots come from the quadratic that results when the linear factor from this root is divided out of the cubic polynomial. 
+Letting 
+
+<math> <mo>&sigma;</mo> <mo> = </mo> <mfrac> <mn>1</mn> <mn>2</mn> </mfrac> 
+
+<mfenced> 
+<mrow> 
+
+ <mo>-</mo><mn>1</mn><mo>+</mo><mo>&#x2062;<!--INVISIBLE TIMES--></mo><mi>i</mi> <msqrt> <mn>3</mn> </msqrt>
+
+
+</mrow> 
+</mfenced> 
+
+</math>
+
+, the first of those roots has the form <math> <mi>p</mi> </math>  as 
+
+
+
+<p class="equation"> 
+
+<math> 
+<msub> <mo>&lambda;</mo> <mn>1</mn> </msub> <mo>=</mo>  
+<mo>-</mo> 
+<mfrac> <mn>1</mn>  <mrow> <mn>3</mn><mi>a</mi> </mrow> </mfrac>  
+
+<mfenced>
+<mrow> 	
+	<mi>b</mi> 
+	<mo>+</mo>  
+	<!--<mo>&sigma;</mo> -->
+	<mo>&Lambda;</mo>
+	<mo>+</mo>
+	<mfrac> <mi>C</mi> <mrow> <mo>&sigma;</mo <mo>&Lambda;</mo> </mrow>	
+</mrow> 	
+</mfenced> 
+<mo>.</mo> 
+</math> 
+
+</p>
+
+The other root <math> <msub> <mo>&lambda;</mo> <mn>2</mn> </msub> </math> is obtained from this last expression by replacing 
+<math> 
+<mo>&sigma;</mo> 
+</math> 
+by
+
+
+
+<math> 
+<mover accent="true"> 
+<mo>&sigma;</mo> 
+<mo>&OverBar; </mo>
+</mover> 
+</math>. 
+
+
+</p>
+
+</div>
+<div id="footnotes">
+* By Original hand-drawn version: N.Mori Updated hand-drawn version: Rubber Duck (☮ • ✍) [Public domain], via Wikimedia Commons
+</div>
+<div id="footer">
+Copyright &#169; 2015 Kevin Cooper
+</div>
+</body>
+</html>

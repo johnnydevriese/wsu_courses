@@ -1,0 +1,74 @@
+
+import math
+import numpy 
+import scipy 
+import pylab
+import scipy.optimize
+
+
+#function definitions. 
+#the 0.2 is the t-Tau moved to the other side so we can solve for x when y is 0. 
+def f(x): 
+	
+	y = x - 0.2 * numpy.sin(x) - 0.8
+	
+	return y 	
+
+
+def f_prime(x): 
+	
+	y = 1.0 - 0.2 * numpy.cos(x) 
+	
+	return y
+
+#could also use this simple newton method. 
+def newt(x,n):
+	for i in range(n):
+		if f_prime(x) == 0:
+			return x
+		x = x - f(x)/f_prime(x)
+	return x
+
+
+
+#using a scipy function for computing the zero. 
+# Where 0.2 is the intial guess. 
+root = scipy.optimize.newton(f, .2, fprime = f_prime)	
+
+
+#could uncomment line 40 to use our own newton method. (The answer is still the same.) 
+#root = new(0.2, 10) 
+
+
+print 'this is the root for the given mean anomaly (radians):', root 
+
+
+#converting from radians to degrees. 
+root_degrees = root * ( 180.0 / numpy.pi ) 	
+
+print 'This is the root in degrees (E):', root_degrees 
+
+#now we want r and theta. 
+# r = a(1 - eccentricity * cos(E) ) 
+# tan(theta/2) = sqrt((1+eccentricity) / (1-eccentricity)) * tan(E/2)
+#We want to solve for theta  
+#where e = 0.2 and a = 1.1 A.U. (given) 
+
+eccentricity = 0.2 
+semi_major_axis = 1.1 
+
+
+
+#calculating r and theta. 
+r = semi_major_axis * (1.0 - eccentricity * numpy.cos(root)) 
+
+theta = 2.0 * numpy.arctan(numpy.sqrt((1.0 + eccentricity) / (1.0 - eccentricity))) * (root_degrees/2.0)
+
+print 'this is r:', r 
+
+print 'this is theta:', theta
+
+
+
+
+

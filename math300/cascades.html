@@ -1,0 +1,116 @@
+<html>
+<head>
+<link rel="stylesheet" href="cascades.css" type="text/css"/>
+</head>
+<body>
+<div id="titles">
+<h1>Cascading Style Sheets</h1>
+<h2>Separating structure from style</h2>
+</div>
+<div id="navigation">
+<ul>
+<li><a href="#styles">Style Sheets</a></li>
+<li><a href="#cascades">Cascades</a></li>
+<li><a href="#trails">Trails</a></li>
+<li><a href="#views">Views</a></li>
+</ul>
+</div>
+<div id="content">
+
+<div id="notes">
+<h3>Hints</h3>
+<ul>
+<li>Tables can be difficult to format.
+They should be avoided when possible.</li>
+<li>Div tags should be used liberally in
+markup.</li> 
+<li>When specifying font families,
+allow many choices for different
+platforms.</li>
+<li>There are kits of extra CSS specifications
+not directly supported by browsers: -moz- for Mozilla
+products, and -webkit- for Chrome/Safari/IE.</li>
+</ul>
+</div>
+
+<p>Cascading Style Sheets (CSS) constitute a 
+collection of W3C
+specifications that give tremendous control over the
+appearance of a document, even as the style 
+specifications can actually be separated from the 
+content of the document.  In this way, a single
+set of style specifications can be used to 
+format many different pages - even entire web sites.
+</p>
+<div class="rightfloat">
+<img src="http://adams.math.wsu.edu/students/kcooper/css-brush.jpg"/>
+<br/>
+Figure 1: A Cascade Trail
+</div>
+<p id="cascades">
+The word "cascading" refers to an algorithm that 
+specifies uniquely what happens when multiple 
+styles are applied to a single body of text.
+The idea is that we can apply styles to a high-level 
+HTML element, and then subsequently apply more styles
+to lower levels of HTML elements
+that augment or even override the styles applied at
+the higher level.  Thus, there is a "cascade" of
+style specifications that apply to any given 
+HTML element.
+</p>
+<p id="trails">Cascading Style Sheets should not be confused 
+with the Cascade Mountains of Washington state.
+However, we can draw a few gratuitous parallels.
+In particular, it is alarmingly easy to become
+bogged down in ugly detail using CSS.  If we 
+start randomly to apply styles to low-level elements,
+we quickly end up with CSS that looks like 
+a typical Cascade Mountain trail experience, as 
+depicted in Figure 1.
+</p>
+<p id="views">By contrast, if we use good structural
+markup for our HTML, and then design the formatting
+from the top down, our formatting can be
+as clean and clear as the view from the top
+of a mountain, as illustrated in Figure 2.
+To make this happen, we should always do 
+our best to use some abstract design
+ideas.
+<ul>
+<li>The document itself should be carefully 
+structured.</li>
+<li>Style specifications in the HTML file 
+should be avoided - use classes and IDs 
+to apply special styles.</li>
+<li>Style specifications for a given structural
+element should be designed from the highest-level
+down.</li>
+</ul>
+</p>
+<div class="rightfloat">
+<img src="http://adams.math.wsu.edu/students/kcooper/css-high-level.jpg"/>
+<br/>
+Figure 2: A view from the top down
+</div>
+<p>
+Given the complexities of CSS formatting, one
+can see why so many web developers insist on 
+fixed-width formatting.  That allows them to
+specify the size of every HTML element explicitly, 
+and know that they will all fit together.  On
+the other hand, using a fixed-width format
+means that on large screens there will be vast
+swaths of unused space, while on small screens
+most of the content falls off the screen.
+A great deal of modern CSS is devoted to making 
+a layout that works for both a large desktop computer
+and a small mobile phone.
+</p>
+</div>
+<div id="footer">
+Copyright 2015 
+<a href="http://www.math.wsu.edu/kcooper">Kevin Cooper</a>
+</div>
+</body>
+</html>

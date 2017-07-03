@@ -1,0 +1,356 @@
+\documentclass[12pt, leqno]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%american mathematical society - AMS 
+
+\usepackage{enumerate}
+
+\usepackage{wrapfig}
+\usepackage{subfig}
+
+\oddsidemargin = 0in
+\textwidth=6.5in
+
+\numberwithin{equation}{section} 
+
+\numberwithin{figure}{section}
+
+\begin{document}
+
+%\baselineskip=20pt 
+
+Hello world! This is the beginning of \LaTeX! \\
+
+We can start a new paragraph at any time by leaving a blank line. 
+Not that there are many special characters in \LaTeX or just \TeX. 
+In particular \&, \%, \#, \_, \{, \}, carets and tildes.  and  \textbackslash
+are all special characters -- if \LaTeX sees any of these without a preceding backslash, 
+it thinks they are commands. \\
+
+A macro is just a markup command. 
+
+\section*{Typesetting Mathematics!}
+
+Donnie Knuth is the creator of \TeX. To typeset mathematics and it is very good at it. 
+We could type a vector as: 
+
+$ (v_1, v_2, v_3)^T $.
+
+We can create display math in a number of ways. 
+
+$$ %display math mode.
+f(x) = x^n + 500x^n-1 + \cdots + 501x
+$$ 
+We can type many things in \TeX that were not possible in HTML, for example 
+
+\begin{equation}
+y = x 
+\end{equation}  
+  
+\begin{displaymath}
+g(x) = \int_0^\infty G(t,x) \, dx  % \, adds just a little bit of extra space -- only in math mode. 
+\end{displaymath}  
+
+We can now do more complicated constructions. For example, we say that $\lambda$ is an eigenvalue of a matrix $A$ corresponding to a vector $\vec{u}$ or \(u\) if $Au = \lambda u $ For example 
+
+%put some bullshit right here. 
+%Remember that you CANNOT HAVE BLANK SPACE AT END OF EQUATION!!!
+
+so $-1$ is an eigenvalue corresponding to eigenvector $[1,0]^T$
+
+\LaTeX\ can do more sophisticated mathematical typesetting. We can make piecewise defined functions as follows: 
+
+\[
+f(x) = \begin{cases}
+x^2 & x\ge 0 \\ 
+0 & \text{otherwise}. 
+\end{cases}
+\]  
+
+Here is an example involving some Greek letters and special functions: 
+$$  
+\Lambda_N = 
+\sum_{n=0}^{N}\left(\frac{1}{\cos\lambda^n}\right).
+$$  
+
+We could write the key part of the proof that the harmonic series diverges as 
+
+% &= means align on this thing
+
+\begin{align}
+\sum_{i=1}^{2^N-1}
+\frac{1}{i} &= 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{2^N-1}\\
+&> \frac{1}{2} + \frac{1}{4} + \frac{1}{4} + 
+\overbrace{\frac{1}{8} + \cdots + \frac{1}{8}}^{\text{4 times}} +
+\cdots + \frac{1}{2^N-1} \quad \text{for} N > 3
+\end{align}
+
+
+\section*{Counting} 
+%\label{sec:math}
+%\nonumber will give the equation no number. 
+As we saw in Section %\ref{sec:math} 
+\LaTeX counts many things, such as chapters, sections and other document body parts, equations, 
+citations, theorems and so on. We can manipulate those counters by using the setcounter and addtocounter macros. 
+
+To make our own counter, we just use the \texttt{setcounter} macro: 
+\newcounter{numberthes}
+\setcounter{numberthes}{42}
+for instance, the number of times the word "the" has occurred so far is 
+\arabic{numberthes} but now, the number of times ``the" has occurred. is 
+\addtocounter{numberthes}{2}
+\arabic{numberthes}  
+% these are back quotes by unix geeks `````````
+
+% there are two environments 'align' starts a bunch of stuff(math mode, number equations, align equal signs) 
+% there is 'aligned' that does NOT start math mode. It only starts in math mode. 
+%ampersands are for alignment 
+
+\subsection*{Theorems \& Stuff}
+\label{subsec:theorems}
+In this subsection, numbered, \ref{subsec:theorems}, we will discuss the numbering scheme for theorems, definitions corollaries, and such. 
+
+\newtheorem{theorem}{Theorem}[section] %the counter is at the end. 
+\newtheorem{definition}[theorem]{Definition}
+
+\newtheorem{lemma}[theorem]{Lemma} %counter in the middle uses an exsisting counter
+
+
+\begin{definition}
+The definition is where we put the meanings of the terms we use in our theorems. 
+\end{definition}
+
+First, we prove a technical result. 
+\begin{lemma}
+here is where we prove some little technical result taht we will use in the proof of the theorem.
+\end{lemma}
+
+\begin{theorem}
+Theorems are where we prove things about the terms we defined in the definitions. 
+\end{theorem}
+
+\section*{Lists}
+There are three kinds of lists in every markup language: 
+ordered lists, unordered lists, and description lists. 
+
+\begin{enumerate}[A)]
+\item The first item 
+\item The second item 
+\item The ultimate item 
+\end{enumerate}
+
+Here is an unordered list. 
+%\noindent 
+\begin{itemize}
+\item one 
+\item two 
+\item three
+\end{itemize}
+
+Here is a description list. 
+\begin{description}
+\item[The first definition -] the first def. 
+\item[second -] the second. etc etc 
+\end{description}
+
+
+\section*{Page layout and spacing}
+Page layout in \TeX\ is not as transparent as it is in writing in WYSiWYG word processor 
+instead of setting margins, as we woul in a WYSiWYG program, \LaTeX\ knows only where the 
+upper left corner of hte text area is relative to the page, and how wide 
+and tall the text area is. 
+For this purpose it sets many variables that control the positions and sizes of the text area. 
+We can change the values of these variables. 
+
+There are two ways to change the values of these variables: We can do it directly (set the variable equal to exactly what we want.); or we can use the \texttt{newdimension} command. 
+Here is a list(possibly incomplete) of the variables of what we can change and control. 
+
+\begin{description}
+\item[oddsidemargin-]This is distance of the text area from the left edge of the page on \textbf{odd} numbered pages. 
+This is useful when you are writing a book! In the article documentclass, this controls both odd and even numbered pages. Note that the distance we specify here is relative to default 1 inch margin. Not that the documentclass also imposes a separate default. 
+\item[evensidemargin-]this is the distance of the text area from the left edge of the page on even-numbered pages This only applies in some documentclasse, such as in book. 
+\item[topmargin-] This is the top of the page. 
+\item[textwidth-]the width of the text area. 
+\item[textheight-] the height of the text area. 
+\item[headheight-] The height of the header. 
+\item[headsep-]The height of the separation of the header from the text area. 
+\item[footskip-] The distance from th text area to the footer. 
+\item[baselineskip-] The distance from the bottom of on line to the next. 
+\item[baselinestrech] This is actually not a dimension; it is a macro that controls how much the space between
+line is stretched. For example, to get double-spaced text you could type\\
+%\texttt{\textbackslash renewcommand\{\textbackslash baselinestretch\{2\}\}}
+\item[parskip-] The extra distance to place between paragraphs. 
+\item[parindent-] the amount o indentation at the beginning of every paragraph. Except the first paragraph in article class. 
+
+\subsection{Spacing}
+
+Before we can really discuss spacing, we have to talk about horizontal and vertical mode. \LaTeX\ 
+takes characters not separated by spaces and pastes them together into a word. 
+It takes other white space and replaces it by so-called \textit{glue}.
+This is illustrated below: 
+%\begin{description}
+
+%\begin{center}
+%\fboxsep=0pt
+%\framebox(stuff){M}
+%\end{center}
+
+All of this word and line formation takes place in horizontal mode. 
+Putting lines one after another requires going into vertical mode -- where \LaTeX\ figures out how to fit the various lines on the page. 
+
+we can make horizontal spaces \hspace{10pt} any time we are in horizontal mode. 
+\vspace{0.5in} \\
+Space can be either positive or negative. Note that \LaTeX cannot put in vertical space except when it is in vertical mode. 
+
+%\end{description}
+
+there are some special spacing commands that allow us to put in a lot of glue at once. 
+In particular in horizontal mode, the \texttt{hfil} and \texttt{hfill} commands put in as much space as we need. 
+For example, look below. 
+\begin{center}
+Left \hfill Right \\
+Left \hfil Right \\
+Left \hfill middle \hfill right
+\end{center}
+
+Likewise, there are commands called \texttt{vfil} and \texttt{vfill} that give as much vertical space as we need. 
+There are a couple of similar macros that put dots or rules in place of these spaces. These are called \texttt{dotfill} and \texttt{hrulefill}, respectively. 
+\begin{center}
+Chapter 12 \dotfill 121 
+\end{center}
+
+Another aspect of spacing is the boxes \TeX\ constantly uses form lines and so on. 
+For example, we already saw that we could put a box around any text using \texttt{framebox} \framebox{framebox}. 
+We can make a a plain box any time using \makebox[3in]{makebox} 
+
+
+\parbox{2in}{To get a paragraph of a certain size, use \texttt{parbox}. Not that the width of this is an obligatory argument.}
+
+
+
+\end{description}
+
+
+\section{Graphics}
+
+Before we start, we should probably mention one or two ways of storing graphics that are not traditional 
+image formats. In particular, the EPS(Encapsulated PostScript) format is often used for storing images used in \TeX. 
+This is an old-fashioned way to do 
+ 
+to incorporate images into your document, you must first load the \texttt{graphicx}, After that we can use the famous \texttt{includegraphics} command to put in your image: viz\\
+\begin{figure}[ht] % 'h' means put it here and 'ht' means that put it at top the and here. 'ht!' put it here now! 
+\centering
+%\includegraphics[width=0.5\textwidth]{/path/to/picture.jpg}
+%\caption{Who brought the cat?!}
+\end{figure}
+
+Note that from now on we will never refer to figures using any formulations such as ``in the figure below''. Instead, we always give the figure a name (number), and then refer to it using that. 
+
+there are many more packages to allow us to place our figures cleverly, attractively, etc., but we must load each 
+one separately. Note that some of the these packages are not compatible with features of other packages -- never load packages you do not need. For example, if we want to place a figure to one side of the page with text flowing around it, we use the \texttt{wrapfig} package. 
+
+%\begin{wrapfigure}{l}{2.54in}
+%\includegraphics[width=2.5in]{/path/to/filname/cat.jpg}
+%caption{Tijgertje's like to sleep}
+%\label{fig:hanger}
+%\end{wrapfigure}
+
+Note that if we want to have figure numbers in the form section.figure, we can again use the \texttt{numberwithin} macro. We can also refer to %\ref{fig:hanger} 
+using a \texttt{ref} command. Also note that the figure number is not incremented until we use the \texttt{caption}
+macro -- do not use your \texttt{label} macro until after that happens. 
+
+Another common requirement is to have two figures side by side. We could actually do that in an ordinary \texttt{figure} environment, but we would not get captions on each individual figure. Figure environment isn't about figures, but about floating elements. If we want captions then we must load another package: the \texttt{subfig} package. 
+%\begin{figure}[ht!]
+%\begin{subfloat}[How it is not done.]
+%{
+%\includegraphics[.45\textwidth]{/path/to/the/image/cat.jpg}
+%\label{fig:done}
+%}
+%\end{subfloat}
+%\end{figure}
+%
+%\begin{figure}
+%\begin{subfloat}[How it is done.]
+%{
+%\includegraphics[.45\textwidth]{/path/to/the/image/cat.jpg}
+%}
+%\end{subfloat}
+%\end{figure}
+
+Now we can refer to Figure \ref{fig:done} using the \texttt{label-ref} system as usual. 
+
+\section*{Tables}
+
+There is another environment that works exactly like the \texttt{figure} environment, except that the object in it that the objects in it that have captions are labeled  ``Table''. That environment is, not surprisingly, called the \texttt{table} environment. In order to make an actual table we must invoke the \texttt{tabular} environment. 
+Table \ref{tab:pets} shows an example of some of the simplest features of the \texttt{tabular} environment. 
+
+\begin{table}[ht!] %difference between a table and a figure? Nothing other than the name. 
+\caption{A summary of pets}
+\label{tab:pets}
+\begin{tabular}{| l | c | p{2in} |}
+Animal & Sociability & something and feeding \\ 
+\hline
+Dog & high & blah blah bblah \\
+\hline
+Cat & low & blah blah blah \\ 
+\cline{2-3}
+politician & \multicolumn{2}{c|}{Avoid this pet at all costs} \\
+\hline
+\end{tabular}
+\end{table}
+
+Note that the wrapfig package supplies a \texttt{wraptable} environment that lets tables float to one side or the other. 
+
+\section{References}
+
+We often (always) need to make references to other sources in our documents. One way of handling those is to use 
+the \texttt{thebibliography} environment. The key macros associated with this are called \texttt{bibitem} 
+and \texttt{cite} command to actually refer to it. For example, this document contains some bogus references to Donald Knuth's work \cite{ref:knuth79}.
+
+Note that most scholars create a database of references for the work they cite often. For this they use software called Bib\TeX. We will say no more about this.  
+
+\begin{thebibliography}{XX}
+
+\bibitem{ref:knuth79} %when we refer to it by name we use this name. 
+Donald Knuth, \textbf{The \TeX book} Addison Wesley, New York, 1979. 
+
+\bibitem{ref:lamport69}
+Leslie Lamport, \textbf{The \LaTeX\ Book}, Addison Wesley, New York, 1969. 
+\end{thebibliography}
+
+\section{Programming}
+
+\newcommand{\wsu}{Washington State University}
+
+We can let \TeX\ do a lot of our work for us. For example, if there is some text that appears very often in our 
+paper, we can define our own macro to make that text. 
+We can use \texttt{newcommand} to create a new command that
+will save us a bunch of time. 
+
+\newcommand{\tc}[1]{\textbackslash\texttt{#1}}
+
+Sometimes we need to define commands that operate on some argument. For example we have needed to typeset the \TeX\ commands we were talking about, but we were too lazy to type all the stuff every time. Above we defined a \TeX\ command called \tc{tc} that does all that for us. This way we can talk about any command we like, such as \tc{numberwithin}, and get the output while only having to type the argument. Here is another. 
+
+\newcommand{\ltx}[2]{L\raisebox{#1}{a}\raisebox{#2}{}$\chi$} 
+
+This one makes a \LaTeX\ command that raises the a as much as we want: viz. \ltx{2pt}{-2pt}.
+
+There is also a \tc{newenvironment} command that defines an environment that way we want it. 
+
+\section{Odds 'n ends}
+
+\begin{enumerate}
+\item We have seen that tilde is a special character. It is actually a non-breaking space. The hyphenation program is not allowed to hyphenate there. 
+\item If you need to give \TeX\ a hint about where a convenient place to hyphenate is, you cna use the \textbackslash- command. 
+\item The \texttt{verbatim} environment allows us to typeset text obeying all spaces, line breaks and so on. This is used particularly in typesetting computer code. 
+\end{enumerate}
+
+\begin{verbatim}
+function f(x)
+f = 5 
+return f
+\end{verbatim}
+
+
+\end{document}
